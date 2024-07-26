@@ -33,6 +33,7 @@ body{
     flex-flow: row wrap;
     margin: 0 -1rem;
 }
+.row.nowrap{ flex-flow: row nowrap; overflow-x: hidden;}
 [class^="col-"]{ flex: 1 0 auto; padding: 0 1rem; }
 
 .col-1{ flex-basis: 8.33%; max-width: 8.33%;}
@@ -48,6 +49,8 @@ body{
 .col-11{ flex-basis: 91.66%; max-width: 91.66%;}
 .col-12{ flex-basis: 100%; max-width: 100%;}
 .flex{ display: flex;}
+.justify-center{ justify-content: center; }
+.justify-right{ justify-content: right; }
 .justify-right{ justify-content: right; }
 .justify-space-bet{ justify-content: space-between; }
 .align-center{ align-items: center;}
@@ -66,7 +69,7 @@ nav a{ display: block; color: #000; font-size: 12px; font-weight: 300; padding: 
 
 
 
-.banner{ position: relative; background: linear-gradient(to right, #cdced2, #c7c8cd); }
+.banner{ position: relative; background: linear-gradient(to right, #cdced2, #c7c8cd); overflow-x: hidden; }
 .social{ position: absolute; left: 0; top: 0; bottom: 0; background: #ededed; display: grid; place-items: center;}
 .social li{ margin: 10px 0; }
 .social a{ width: 64px; display: block; text-align: center; padding: 13px 0;}
@@ -79,19 +82,54 @@ nav a{ display: block; color: #000; font-size: 12px; font-weight: 300; padding: 
 .banner-text{ max-width: 360px;}
 .banner-text p{ font-size: 14px; line-height: 26px; color: #535353; margin: 2rem 0;}
 .banner-text .link{ line-height: 40px; display: block; width: 114px; border-radius: 20px; text-align: center; background: #000; color: #fff; font-size: 10px;}
-.offer{ position: absolute; right: 0; bottom: 0; max-width: 400px; background: #343434; color: #fff;}
+.offer-left{ position: absolute; right: 0; bottom: 0; transform: translateX(100%); max-width: 400px; background: #343434; color: #fff; display: flex;}
 .banner .offer p.lg{ font-size: 36px; }
+.offer-left .pic{ flex: 0 1 30%;}
+.offer-left .details{ flex-direction: 0 1 70%; padding: 20px;}
+
+
+main{ padding: 20px 0;}
+.tabs{ padding: 54px 0; overflow-x: auto; justify-content: left;}
+.tabs ul{ flex-flow: wrap; }
+.tabs li{ padding: 0 26px; }
+.tabs a{ display: block; color: #000; font: 600 19px var(--ff); }
+
+.product{ aspect-ratio: 1/1; box-shadow: 0 0 5px gray; position: relative; background: #f8f8f8; margin-bottom: 22px;}
+.new{ position: absolute; top: 12px; right: 10px; width: 48px; line-height: 23px; height: 30px; background: url('../img/new.svg') no-repeat; color:#fff; text-align: center; font-size: 11px; }
+.product figcaption{ font-size: 22px; font-weight: bold; text-align: center; padding: 20px; }
+
+.offer{ background: lightblue; padding: 20px;}
+
+section{ padding: 90px 0; text-align: center; }
+.gallery{ position: relative; }
+.gallery a{ position: absolute; line-height: 59px; background: #000; color: #fff; text-align: center; width: 174px; bottom: 45px; left: 50%; transform: translateX(-50%); border-radius: 30px }
+.carousel{ position: relative;}
+.controls{ position: absolute; background: #87878780; top: 50%; line-height: 43px; width: 112px; transform: rotate(-90deg); }
+.controls:hover{  background: #afafaf80;}
+.carousel .prev{ left: -100px; }
+.carousel .next{ right: -100px; }
+.blog{ position: relative; }
+.blog .caption{  position: absolute; left: 0; right: 0; bottom: 0; transform: translateY(50%); margin: 0 35px; background: #fff; padding: 10px;  }
+
+
+footer{ margin-top: -230px; }
+footer .top{ background: #f8f8f8; padding: 240px 0 100px 0;  }
+footer .bottom{ background: #fff; padding: 50px 0;  }
 
 
 @media screen and (max-width:1820px){ 
     .banner p.lg{ font-size: 80px; }
 }
 
+
 @media screen and (max-width:1220px){ 
     html{ font-size: 13px;}
     nav li{ margin: 0 5px;}
     nav a{ padding: 0 8px;}
-    .banner p.lg{ font-size: 60px; }
+    .banner p.lg{ font-size: 60px;}
+    .carousel .prev{ left: -48px; }
+    .carousel .next{ right: -48px; }
+
 }
 
 @media screen and (max-width:980px){ 
@@ -110,6 +148,7 @@ nav a{ display: block; color: #000; font-size: 12px; font-weight: 300; padding: 
     .banner p.lg{ font-size: 36px; }
     .banner p.no{ margin: 10px 0; }
     .banner-text p{ margin: 10px 0;}
+    .tabs li{ padding: 0 10px;}
 }
 
 @media screen and (max-width:767px){ 
@@ -129,6 +168,8 @@ nav a{ display: block; color: #000; font-size: 12px; font-weight: 300; padding: 
     .col-m-hide{ display: none;}
     .right-menu li:last-child{ display: list-item; }
     .social a{ width: 36px;}
+    .tabs li{ padding: 10px;}
+    .product figcaption{ padding: 0;}
 }
 
 @media screen and (max-width:460px){ 
